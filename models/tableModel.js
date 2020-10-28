@@ -7,8 +7,7 @@ const tableSchema = new mongoose.Schema({
         required: [true, 'Please fill table name']
     },
     user: {
-        type: String,
-        required: [true, 'Please fill user id']
+        type: String
 
     },
     wentWell: {
