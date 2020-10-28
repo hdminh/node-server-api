@@ -34,11 +34,6 @@ const userSchema = new mongoose.Schema({
             message: 'Your password and confirmation password are not the same'
         }
     },
-    role: {
-        type: String,
-        enum: ['admin', 'teacher', 'student'],
-        default: 'student'
-    },
     active: {
         type: Boolean,
         default: true,
