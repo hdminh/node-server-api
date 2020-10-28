@@ -6,7 +6,7 @@ const tableController = require('./../controllers/tableController')
 
 
 // Protect all routes after this middleware
-router.use(authController.protect);
+// router.use(authController.protect);
 
 router.delete('/deleteMe', userController.deleteMe);
 
