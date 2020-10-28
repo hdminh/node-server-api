@@ -5,8 +5,6 @@ const authController = require('./../controllers/authController');
 const tableController = require('./../controllers/tableController')
 
 
-router.post('/add', tableController.addTable);
-
 // Protect all routes after this middleware
 router.use(authController.protect);
 
@@ -14,8 +12,8 @@ router.delete('/deleteMe', userController.deleteMe);
 
 router
     .route('/')
-    .get(userController.getAllUsers);
-
+    .get(tableController.getAllTable)
+    .post(tableController.addTable);
 
 router
     .route('/:id')
