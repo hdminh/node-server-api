@@ -4,11 +4,11 @@ const mongoose = require('mongoose');
 const tableSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true, 'Please fill your name']
+        required: [true, 'Please fill table name']
     },
     user: {
         type: String,
-        required: [true, 'Please fill your email']
+        required: [true, 'Please fill user id']
 
     },
     wentWell: {

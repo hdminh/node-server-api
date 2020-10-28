@@ -8,8 +8,6 @@ const tableController = require('./../controllers/tableController')
 // Protect all routes after this middleware
 // router.use(authController.protect);
 
-router.delete('/deleteMe', userController.deleteMe);
-
 router
     .route('/')
     .get(tableController.getAllTable)
@@ -17,8 +15,8 @@ router
 
 router
     .route('/:id')
-    .get(userController.getUser)
-    .patch(userController.updateUser)
-    .delete(userController.deleteUser);
+    .get(tableController.getTable)
+    .patch(tableController.updateTable)
+    .delete(tableController.deleteTable);
 
 module.exports = router;

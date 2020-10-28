@@ -28,6 +28,5 @@ exports.addTable = async (req, res, next) => {
 exports.getAllTable = base.getAll(Table);
 exports.getTable = base.getOne(Table);
 
-// Don't update password on this 
-exports.updateUser = base.updateOne(User);
-exports.deleteUser = base.deleteOne(User);
+exports.updateTable = base.updateOne(Table);
+exports.deleteTable = base.deleteOne(Table);
