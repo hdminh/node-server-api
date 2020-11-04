@@ -8,7 +8,9 @@ const cors = require('cors');
 
 
 const userRoutes = require('./routes/userRoutes');
-const tableRoutes = require('./routes/tableRoutes');
+const boardRoutes = require('./routes/boardRoutes');
+const tagRoutes = require('./routes/tagRoutes');
+const authRoutes = require('./routes/authRoutes');
 const globalErrHandler = require('./controllers/errorController');
 const AppError = require('./utils/appError');
 const app = express();
@@ -18,14 +20,6 @@ app.use(cors());
 
 // Set security HTTP headers
 app.use(helmet());
-
-// Limit request from the same API 
-const limiter = rateLimit({
-    max: 150,
-    windowMs: 60 * 60 * 1000,
-    message: 'Too Many Request from this IP, please try again in an hour'
-});
-app.use('/api', limiter);
 
 // Body parser, reading data from body into req.body
 app.use(express.json({
@@ -43,8 +37,10 @@ app.use(hpp());
 
 
 // Routes
-app.use('/api/user', userRoutes);
-app.use('/api/table', tableRoutes);
+app.use('/user', userRoutes);
+app.use('/auth', authRoutes);
+app.use('/board', boardRoutes);
+app.use('/tag', tagRoutes)
 
 // handle undefined Routes
 app.use('*', (req, res, next) => {
