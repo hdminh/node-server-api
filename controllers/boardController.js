@@ -21,7 +21,7 @@ exports.createBoard = async (req, res, next) => {
 
 exports.getListBoard = async (req, res, next) => {
     try {
-      const listBoard = await Board.find({ user: req.user.id });
+      const listBoard = await Board.find({ user: req.user._id });
       res.status(200).json({ 
           total: listBoard.length, 
           data: listBoard 

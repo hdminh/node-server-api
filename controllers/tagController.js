@@ -6,13 +6,13 @@ exports.addTag = async (req, res, next) => {
     try {
         await Table.create(
             {
-                board: req.body.table,
+                board: req.body.board,
                 column: req.body.column,
                 content: req.body.content
             }
             );
 
-        res.status(204).json({
+        res.status(200).json({
             status: 'success',
             data: null
         });
@@ -25,7 +25,7 @@ exports.addTag = async (req, res, next) => {
 
 exports.getTagByTable = async (req, res, next) => {
     try {
-      const listTag = await Tag.find({board: req.params.id });
+      const listTag = await Table.find({board: req.params.id });
       res.status(200).json({ 
           total: listTag.length, 
           data: listTag });
